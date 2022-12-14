@@ -1,0 +1,110 @@
+entity	feature	description	pep	obsoleted peps	pypa
+package_name		Name of a package.	345, 508		
+	canonicalize	Converts name into a canonical form.	503		
+module_path		Dotted path to a module used in an import expressions.			
+	resolve	Converts a possible relative path to an absolute one.			
+version		Package version	440	386 345	version-specifiers
+	parse	Parses version into objects allowing to access its components.			
+	compose	Creates a version object from scratch, or edits an existing version object			
+	compare	Compares to version objects.			
+	canonicalize	Converts a version object or a string into a “canonical” form.			
+	validate	Validates that a version object or a string is in a “canonical” form.			
+	bump	Convenience methods to increment versions semantically.			
+	serialize	Converts a version object into a string.			
+specifier		A part of a requirement putting restriction on a set of versions of the package that are needed. i.e. `>=1.0`	440		
+	parse	Parses a specifier into a conveniently-editable form.			
+	match	Checks if a certain `version` matches the `specifier`.			
+	edit	Allows to edit the specifier.			
+	serialize	Allows to serialize the specifier into a string.			
+marker		An environment marker, which restricts to which versions of Python the requirement is applicable	508		
+	parse	Parses a marker into a conveniently-editable form.			
+	compare	Compares markers for equality.			
+	match	Checks if an object describing an environment matches the marker.			
+	edit	Allows to edit the marker by modifying the object fields.			
+	serialize	Allows to serialize the marker object back into a string			
+	infer_environment	Infers an object describing the environment from the actual environment.			
+requirement		Describes a version of a package	508		dependency-specifiers
+	parse_req_syntax	Parses from setuptools `install_requires`-like syntax.			
+	serialize_req_syntax	Serializes into setuptools `install_requires`-like syntax.			
+	parse_dist_metadata_syntax	Parses from the syntax used in METADATA file			
+	serialize_dist_metadata_syntax	Serializes from the syntax used in METADATA file			
+	req_to_dist	Converts from `setuptools-like` syntax into the syntax used in METADATA file.			
+	edit	Allows editing.			
+direct_url		A part of a requirement allowing to specify a direct URL.	610, 440, 508		direct-url
+dist-info		A directory containing distribution metadata files	627, 376		recording-installed-packages, core-metadata, binary-distribution-format 
+distribution_metadata		`METADATA` file			core-metadata
+	parse	Parses distribution metadata			
+	compose	Creates distribution metadata from scratch.			
+	serialize	Serializes distribution metadata			
+distribution_record		`RECORD` file tracking other files integrity	627, 376		recording-installed-packages
+	compose	Creating from scratch.			
+	parse	Parse an existing record file contents into convenient objects			
+	serialize	Serialize objects into a string that can be dumped into a `RECORD` file.			
+	verify	Verifying integrity of a distribution.			
+	uninstall	Uninstalling a distribution.			
+entry_points		`entry_points.txt` file	no		entry-points
+	parse	Parses entry points from the file into convenient objects.			
+	edit	Allows modification of the entry point object			
+	serialize	Allows to serialize an entry point object back into a string.			
+pep621		A tool-neutral format for specifying package metadata.	621		declaring-project-metadata
+	parse	Allows to parse the metadata into a conveniently-editable object.			
+	generate	Allows to convert a conveniently-editable object into the corresponding `pyproject.toml` file section.			
+pep517			517, 518		declaring-build-dependencies
+	build_wheel	Allows to build a wheel from an sdist.			
+	build_editable_wheel	Allows to build an “editable wheel” from an sdist.			
+	build_sdist	Allows to build an sdist archive from an sdist.			
+sdist		A source distribution or a tree.			source-distribution-format
+sdist_filename		Name of a source distribution archive, for example `requests-2.28.2.dev10+gac3be98b.d20221213.tar.gz`.	625		source-distribution-format
+	parse	Parses the name and allows access to the info encoded in it.			
+compatibility_tag		A part of wheel filename encoding the info about the wheel contents compatibility.	425, 513, 571, 599, 600		platform-compatibility-tags, binary-distribution-format
+	parse	Converts the string into the object with convenient access to compatibility info.			
+	edit	Allows to modify the object fields.			
+	create	Creates a tag from scratch.			
+	serialize	Serializes the tag into a string.			
+	infer	Allows to infer a set of wheel tags compatible to current system.			
+	match	Checks if the current system matches the tag			
+wheel_filename		Name of a wheel archive, for example requests-2.28.2.dev10+gac3be98b.d20221213-py3-none-any.whl	427		binary-distribution-format
+	parse	Parses the name and allows access to the info encoded in it.			
+	make	Encodes the info about wheel contents into its name.			
+wheel_metadata		`WHEEL` file	427		binary-distribution-format
+	parse	Parses wheel metadata			
+	serialize	Serializes wheel metadata			
+wheel		A prebuilt python package	427		binary-distribution-format
+	read	Allows to access wheel contents conveniently			
+	compose	Allows to create a valid wheel from scratch.			
+	modify	Alows modifying existing wheels.			
+	editable_compose	Allows to create “editable wheels”.			
+	install	Installs a wheel			
+	import	Allows to import packages from a wheel without unpacking it			
+	verify_hashes	Verifies hashes of files within wheel.			
+installation		The dir where distributions reside.			
+	scan	Scans the dir			
+	cache	Caching			
+	lookup	Look-up of distribution by name			
+sdist_manifest		`MANIFEST.in` file.	no		
+	parse	Parses the file.			
+	execute	Executes the file, updating the internal state of the object tracking state.			
+	modify	Allows modification of the manifest file programmatically at AST level.			
+	serialize	Serializes the AST into the text that can be saved into `MANIFEST.in`			
+	lint	Detect common mistakes in the file			
+script		A platform-dependent wrapper executing a certain callable from within a python module.	427		binary-distribution-format
+	lookup	Check presence of a **certain** wrapper within a certain system-dependent dir			
+	create	Generate a wrapper script from an object describing which function it should call.			
+	current_machine_kind	Gets the kind of current machine needed for wrapper generation.			
+locator		Looks-up packages in registries and allows to install them			
+	lookup	Looks-up a package in a registry.			
+	fs	Supports a local FS as a source of info.			
+	index_xml	Supports a local index XML-RPC API as a source of info			
+	index_json	Supports a local index JSON API as a source of info	691		
+	index_simple	Supports a local index “simple” API as a source of info	658, 629, 592		simple-repository-api
+	combined	Provides an object allowing to compose different locators into a locator checking presence of packages within multiple locators			
+index		A package index like warehouse.			
+	create_version	Creates a version for a package within the index.	no		
+	yank	Mark a release as a one not to be installed.	592		
+	upload_file	Uploads either an sdist or a wheel into the index.	no, 694		
+	upload_site	Uploads a website with the docs into the index.	No, 694		
+	verify	Verifies integrity of the package within the index.			
+	lookup	Locates a package within the index.	503		
+resource		convenient access to data files within distributions			
+	lookup	search a resource by name			
+	iterate	iterate resources			

@@ -1,0 +1,15 @@
+lib	package_name	module_path	version	specifier	marker	requirement	distribution_metadata	distribution_record	entry_points	pep621	pep517	sdist_filename	compatibility_tag	wheel_filename	wheel_metadata	wheel	installation	sdist_manifest	script	locator	index	resource
+packaging	✅	❌	✅	✅	✅	✅	❌	❌	❌	❌	❌	✅	✅	⚠️	❌	❌	❌	❌	❌	❌	❌	❌
+distlib	✅	✅	⚠	❌	⚠️	❌	✅	⚠	✅ 	❌	❌	?	⚠️	✅	⚠️	✅	✅	⚠️	⚠️	✅	✅	✅
+installer	❌	❌	❌	❌	❌	❌	❌	✅	⚠	❌	❌	❌	❌	⚠️	❌	⚠️	❌	❌	❌	❌	❌	❌
+uninstaller	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+pyproject-hooks	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	✅	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+build	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	✅	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+pyproject-metadata	❌	❌	❌	❌	❌	❌	⚠	❌	❌	⚠	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+editables	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+wheel	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	⚠️	❌	⚠️	❌	❌	❌	❌	❌	❌
+pep440_rs (not worth, `~5` times faster than `packaging`)	❌	❌	⚠	⚠	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+pep440	❌	❌	⚠️	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+pep440-version-utils	❌	❌	✅	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+pep440nz	❌	❌	✅	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌
+check-manifest	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌	❌

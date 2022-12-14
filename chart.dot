@@ -1,0 +1,27 @@
+strict digraph {
+	package_name, specifier, marker, direct_url -> requirement -> distribution_metadata;
+	version -> specifier;
+
+	package_name, version, entry_points -> pep621 -> sdist -> wheel;
+	wheel_metadata, wheel_filename -> wheel;
+	wheel_tag -> wheel_filename;
+	package_name, version -> sdist_filename, wheel_filename;
+	marker -> wheel_tag -> wheel_metadata;
+	pep621 -> wheel_metadata;
+
+	distribution -> installation;
+	
+	package_name, version -> distribution_metadata;
+	distribution_metadata, distribution_record, entry_points, wheel_metadata, direct_url -> "dist-info";
+	"dist-info", resource, module_path -> distribution -> wheel;
+	package_name -> module_path;
+	module_path -> entry_points;
+	sdist_manifest -> sdist;
+	sdist, sdist_filename -> sdist_archive;
+
+	wheel, sdist -> index;
+	entry_points -> script;
+
+	requirement -> locator -> index;
+	script;
+}
